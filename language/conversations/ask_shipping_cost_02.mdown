@@ -1,5 +1,0 @@
-Hi. Tell me the cost from [6288 Locomotive Lane, Cicero NY 13039](address#from) to [1288 McAllister St, San Francisco](address#to). Package is [4x12x30](dimensions#inches) and [20](weight#pounds) pounds. 
-* ask_shipping/cost
-
-< It will cost [$30.20](amount-of-money/cost) to send your shipment from [Cicero](city#from) to [San Francisco](city#to) using [FedEx Ground](carrier).
-* provide_shipping/cost

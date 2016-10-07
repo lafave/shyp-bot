@@ -1,5 +1,0 @@
-Hi. Tell me the cost from [6918 Melrose Ave, Los Angeles](address#from) to [1288 McAllister St, SF](address#to). Package is [8x8x8](dimensions#inches) and [4](weight#pounds) pounds. 
-* ask_shipping/cost
-
-< It will cost [$10.20](amount-of-money/cost) to send your shipment from [Los Angeles](city#from) to [San Francisco](city#to) using [FedEx Ground](carrier).
-* provide_shipping/cost
