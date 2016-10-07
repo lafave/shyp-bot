@@ -20,13 +20,57 @@ exports.handle = function handle(client) {
     }
   })
 
-  const untrained = client.createStep({
+  const collectFromAddress = client.createStep({
+    satisfied() {
+      return Boolean(client.getConversationState().from_address)
+    },
+
+    prompt() {
+      client.addResponse('app:response:name:prompt/from_address')
+      client.done()
+    }
+  })
+
+  const collectToAddress = client.createStep({
+    satisfied() {
+      return Boolean(client.getConversationState().to_address)
+    },
+
+    prompt() {
+      client.addResponse('app:response:name:prompt/to-address')
+      client.done()
+    }
+  })
+
+  const collectDimensions = client.createStep({
+    satisfied() {
+      return Boolean(client.getConversationState().length && client.getConverationState().width && client.getConversationState().height)
+    },
+
+    prompt() {
+      client.addResponse('app:response:name:prompt/dimensions')
+      client.done()
+    }
+  })
+
+  const collectWeight = client.createStep({
+    satisfied() {
+      return Boolean(client.getConversationState().weight)
+    },
+
+    prompt() {
+      client.addResponse('app:response:name:prompt/weight')
+      client.done()
+    }
+  })
+
+  const provideShippingCost = client.createStep({
     satisfied() {
       return false
     },
 
     prompt() {
-      client.addResponse('app:response:name:apology/untrained')
+      client.addResponse('app:response:name:provide/shipping_cost')
       client.done()
     }
   })
@@ -38,7 +82,7 @@ exports.handle = function handle(client) {
     streams: {
       main: 'onboarding',
       onboarding: [sayHello],
-      end: [untrained]
+      getShippingCost: [collectFromAddress, collectToAddress, collectDimensions, collectWeight, provideShippingCost]
     }
   })
 }
