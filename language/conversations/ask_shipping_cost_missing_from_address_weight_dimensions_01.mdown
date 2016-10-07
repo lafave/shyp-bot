@@ -1,0 +1,17 @@
+I want to ship to [37 Greenpoint Ave Suite B2, Brooklyn 11222](address#to).
+* ask_shipping/cost
+
+< Where are you shipping from?
+* prompt/from_address
+
+[6288 Locomotive Lane, Cicero NY 13039](address#from)
+* provide_shipping_attrs/from_address
+
+< What are the dimensions of your shipment?
+* prompt/dimensions
+
+[6](dimension#length_inches) x [7](dimension#width_inches) x [30](dimension#height_inches)
+* provide_shipping_attrs/dimensions_inches
+
+< It will cost [$10.20](amount-of-money/cost) to send your shipment from [Cicero](city#from) to [Brooklyn](city#to) using [FedEx Ground](carrier).
+* provide_shipping/cost
